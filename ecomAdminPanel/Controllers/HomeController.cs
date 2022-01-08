@@ -13,5 +13,20 @@ namespace ecomAdminPanel.Controllers
         {
             return View();
         }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Products()
+        {
+            return View();
+        }
+
+        public ActionResult Store()
+        {
+            return View();
+        }
     }
 }
