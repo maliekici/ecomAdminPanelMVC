@@ -13,10 +13,10 @@ namespace ecomAdminPanel.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ecomAdminPanelEntities : DbContext
+    public partial class ecomAdminPanelDBEntities : DbContext
     {
-        public ecomAdminPanelEntities()
-            : base("name=ecomAdminPanelEntities")
+        public ecomAdminPanelDBEntities()
+            : base("name=ecomAdminPanelDBEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace ecomAdminPanel.Models.Entity
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Adminİnfo> Adminİnfo { get; set; }
         public virtual DbSet<Brands> Brands { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
-        public virtual DbSet<Unit> Unit { get; set; }
-        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Products1> Products1 { get; set; }
+        public virtual DbSet<Units> Units { get; set; }
     }
 }

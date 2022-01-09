@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e84d88208da440e7a28f49e49074553f" Name="Diagram1">
-        <EntityTypeShape EntityType="ecomAdminPanelModel.Brands" Width="1.5" PointX="2.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ecomAdminPanelModel.Categories" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ecomAdminPanelModel.Products" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ecomAdminPanelModel.Unit" Width="1.5" PointX="2.375" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="ecomAdminPanelModel.FK_Brands_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="ecomAdminPanelModel.FK_Products_Brands" ManuallyRouted="false" />
-        <AssociationConnector Association="ecomAdminPanelModel.FK_Products_Categories" ManuallyRouted="false" />
-        <AssociationConnector Association="ecomAdminPanelModel.FK_Products_Unit" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ecomAdminPanelModel.Admin" Width="1.5" PointX="5.5" PointY="4.5" />
+      <Diagram DiagramId="06f8088bfb604bcab60dd140b04c395d" Name="Diagram1">
+        <EntityTypeShape EntityType="ecomAdminPanelDBModel.Adminİnfo" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecomAdminPanelDBModel.Brands" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecomAdminPanelDBModel.Categories" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecomAdminPanelDBModel.Products1" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ecomAdminPanelDBModel.Units" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="ecomAdminPanelDBModel.FK_Brands_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="ecomAdminPanelDBModel.FK_Products1_Brands" ManuallyRouted="false" />
+        <AssociationConnector Association="ecomAdminPanelDBModel.FK_Products1_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="ecomAdminPanelDBModel.FK_Products1_Units" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,7 +18,7 @@ namespace ecomAdminPanel.Models.Entity
         public Categories()
         {
             this.Brands = new HashSet<Brands>();
-            this.Products = new HashSet<Products>();
+            this.Products1 = new HashSet<Products1>();
         }
     
         public int ID { get; set; }
@@ -28,6 +28,6 @@ namespace ecomAdminPanel.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Brands> Brands { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Products1> Products1 { get; set; }
     }
 }

@@ -1,0 +1,38 @@
+﻿@using ecomAdminPanel.Models.Entity
+@model List<ecomAdminPanel.Models.Entity.Units>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Units List</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Unit</td>
+            <td>Explanation</td>
+            <td>Delete</td>
+            <td>Update</td>
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Unit</td>
+                <td>@item.Explanation</td>
+                <td><a href="/Units/Delete/@item.ID" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Units/Update/@item.ID" class="btn btn-warning">Update</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a href="/Units/NewUnit" class="btn btn-success" style="margin-top:10px;">Add Unit</a>

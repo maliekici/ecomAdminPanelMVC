@@ -4,15 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ecomAdminPanelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Admin">
+      <Schema Namespace="ecomAdminPanelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adminİnfo">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="100" />
-          <Property Name="Password" Type="nvarchar(max)" />
-          <Property Name="IsActive" Type="bit" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Brands">
           <Key>
@@ -31,23 +30,22 @@
           <Property Name="Category" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="Explanation" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
-        <EntityType Name="Products">
+        <EntityType Name="Products1">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="BrandID" Type="int" Nullable="false" />
-          <Property Name="PorductName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="BarcodeNo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PurchasePrice" Type="money" Nullable="false" />
           <Property Name="SalePrice" Type="money" Nullable="false" />
-          <Property Name="KDV" Type="int" Nullable="false" />
+          <Property Name="KDV" Type="int" />
           <Property Name="UnitID" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="Explanation" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
-        <EntityType Name="Unit">
+        <EntityType Name="Units">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -67,69 +65,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Brands">
+        <Association Name="FK_Products1_Brands">
           <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <End Role="Products1" Type="Self.Products1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Brands">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Products">
+            <Dependent Role="Products1">
               <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Categories">
+        <Association Name="FK_Products1_Categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <End Role="Products1" Type="Self.Products1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Products">
+            <Dependent Role="Products1">
               <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Unit">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        <Association Name="FK_Products1_Units">
+          <End Role="Units" Type="Self.Units" Multiplicity="1" />
+          <End Role="Products1" Type="Self.Products1" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Unit">
+            <Principal Role="Units">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Products">
+            <Dependent Role="Products1">
               <PropertyRef Name="UnitID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ecomAdminPanelModelStoreContainer">
-          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="ecomAdminPanelDBModelStoreContainer">
+          <EntitySet Name="Adminİnfo" EntityType="Self.Adminİnfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brands" EntityType="Self.Brands" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products1" EntityType="Self.Products1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Brands_Categories" Association="Self.FK_Brands_Categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Brands" EntitySet="Brands" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Brands" Association="Self.FK_Products_Brands">
+          <AssociationSet Name="FK_Products1_Brands" Association="Self.FK_Products1_Brands">
             <End Role="Brands" EntitySet="Brands" />
-            <End Role="Products" EntitySet="Products" />
+            <End Role="Products1" EntitySet="Products1" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+          <AssociationSet Name="FK_Products1_Categories" Association="Self.FK_Products1_Categories">
             <End Role="Categories" EntitySet="Categories" />
-            <End Role="Products" EntitySet="Products" />
+            <End Role="Products1" EntitySet="Products1" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Unit" Association="Self.FK_Products_Unit">
-            <End Role="Unit" EntitySet="Unit" />
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="FK_Products1_Units" Association="Self.FK_Products1_Units">
+            <End Role="Units" EntitySet="Units" />
+            <End Role="Products1" EntitySet="Products1" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ecomAdminPanelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ecomAdminPanelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adminİnfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Brands">
           <Key>
             <PropertyRef Name="ID" />
@@ -139,7 +146,7 @@
           <Property Name="Brand" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Explanation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Brands_Categories" FromRole="Brands" ToRole="Categories" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Brands" FromRole="Brands" ToRole="Products" />
+          <NavigationProperty Name="Products1" Relationship="Self.FK_Products1_Brands" FromRole="Brands" ToRole="Products1" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -149,35 +156,34 @@
           <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Explanation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Brands" Relationship="Self.FK_Brands_Categories" FromRole="Categories" ToRole="Brands" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+          <NavigationProperty Name="Products1" Relationship="Self.FK_Products1_Categories" FromRole="Categories" ToRole="Products1" />
         </EntityType>
-        <EntityType Name="Products">
+        <EntityType Name="Products1">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="BrandID" Type="Int32" Nullable="false" />
-          <Property Name="PorductName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BarcodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SalePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="KDV" Type="Int32" Nullable="false" />
+          <Property Name="KDV" Type="Int32" />
           <Property Name="UnitID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Explanation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Brands" Relationship="Self.FK_Products_Brands" FromRole="Products" ToRole="Brands" />
-          <NavigationProperty Name="Categories" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
-          <NavigationProperty Name="Unit" Relationship="Self.FK_Products_Unit" FromRole="Products" ToRole="Unit" />
+          <NavigationProperty Name="Brands" Relationship="Self.FK_Products1_Brands" FromRole="Products1" ToRole="Brands" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Products1_Categories" FromRole="Products1" ToRole="Categories" />
+          <NavigationProperty Name="Units" Relationship="Self.FK_Products1_Units" FromRole="Products1" ToRole="Units" />
         </EntityType>
-        <EntityType Name="Unit">
+        <EntityType Name="Units">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Unit1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Unit" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Explanation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Unit" FromRole="Unit" ToRole="Products" />
+          <NavigationProperty Name="Products1" Relationship="Self.FK_Products1_Units" FromRole="Units" ToRole="Products1" />
         </EntityType>
         <Association Name="FK_Brands_Categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
@@ -191,82 +197,82 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Brands">
+        <Association Name="FK_Products1_Brands">
           <End Role="Brands" Type="Self.Brands" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <End Role="Products1" Type="Self.Products1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Brands">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Products">
+            <Dependent Role="Products1">
               <PropertyRef Name="BrandID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Categories">
+        <Association Name="FK_Products1_Categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <End Role="Products1" Type="Self.Products1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Products">
+            <Dependent Role="Products1">
               <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Products_Unit">
-          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
-          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+        <Association Name="FK_Products1_Units">
+          <End Role="Units" Type="Self.Units" Multiplicity="1" />
+          <End Role="Products1" Type="Self.Products1" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Unit">
+            <Principal Role="Units">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Products">
+            <Dependent Role="Products1">
               <PropertyRef Name="UnitID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ecomAdminPanelEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ecomAdminPanelDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adminİnfo" EntityType="Self.Adminİnfo" />
           <EntitySet Name="Brands" EntityType="Self.Brands" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
-          <EntitySet Name="Products" EntityType="Self.Products" />
-          <EntitySet Name="Unit" EntityType="Self.Unit" />
+          <EntitySet Name="Products1" EntityType="Self.Products1" />
+          <EntitySet Name="Units" EntityType="Self.Units" />
           <AssociationSet Name="FK_Brands_Categories" Association="Self.FK_Brands_Categories">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Brands" EntitySet="Brands" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Brands" Association="Self.FK_Products_Brands">
+          <AssociationSet Name="FK_Products1_Brands" Association="Self.FK_Products1_Brands">
             <End Role="Brands" EntitySet="Brands" />
-            <End Role="Products" EntitySet="Products" />
+            <End Role="Products1" EntitySet="Products1" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Categories" Association="Self.FK_Products_Categories">
+          <AssociationSet Name="FK_Products1_Categories" Association="Self.FK_Products1_Categories">
             <End Role="Categories" EntitySet="Categories" />
-            <End Role="Products" EntitySet="Products" />
+            <End Role="Products1" EntitySet="Products1" />
           </AssociationSet>
-          <AssociationSet Name="FK_Products_Unit" Association="Self.FK_Products_Unit">
-            <End Role="Unit" EntitySet="Unit" />
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="FK_Products1_Units" Association="Self.FK_Products1_Units">
+            <End Role="Units" EntitySet="Units" />
+            <End Role="Products1" EntitySet="Products1" />
           </AssociationSet>
-          <EntitySet Name="Admin" EntityType="ecomAdminPanelModel.Admin" />
         </EntityContainer>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ecomAdminPanelModelStoreContainer" CdmEntityContainer="ecomAdminPanelEntities">
+        <EntityContainerMapping StorageEntityContainer="ecomAdminPanelDBModelStoreContainer" CdmEntityContainer="ecomAdminPanelDBEntities">
+          <EntitySetMapping Name="Adminİnfo">
+            <EntityTypeMapping TypeName="ecomAdminPanelDBModel.Adminİnfo">
+              <MappingFragment StoreEntitySet="Adminİnfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Brands">
-            <EntityTypeMapping TypeName="ecomAdminPanelModel.Brands">
+            <EntityTypeMapping TypeName="ecomAdminPanelDBModel.Brands">
               <MappingFragment StoreEntitySet="Brands">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
@@ -276,7 +282,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="ecomAdminPanelModel.Categories">
+            <EntityTypeMapping TypeName="ecomAdminPanelDBModel.Categories">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
@@ -284,39 +290,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="ecomAdminPanelModel.Products">
-              <MappingFragment StoreEntitySet="Products">
+          <EntitySetMapping Name="Products1">
+            <EntityTypeMapping TypeName="ecomAdminPanelDBModel.Products1">
+              <MappingFragment StoreEntitySet="Products1">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="BrandID" ColumnName="BrandID" />
-                <ScalarProperty Name="PorductName" ColumnName="PorductName" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="BarcodeNo" ColumnName="BarcodeNo" />
                 <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
                 <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
                 <ScalarProperty Name="KDV" ColumnName="KDV" />
                 <ScalarProperty Name="UnitID" ColumnName="UnitID" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Unit">
-            <EntityTypeMapping TypeName="ecomAdminPanelModel.Unit">
-              <MappingFragment StoreEntitySet="Unit">
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="ecomAdminPanelDBModel.Units">
+              <MappingFragment StoreEntitySet="Units">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Unit1" ColumnName="Unit" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
                 <ScalarProperty Name="Explanation" ColumnName="Explanation" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Admin">
-            <EntityTypeMapping TypeName="ecomAdminPanelModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

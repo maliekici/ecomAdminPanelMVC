@@ -12,11 +12,10 @@ namespace ecomAdminPanel.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class Adminİnfo
     {
-        public short Id { get; set; }
+        public int ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public Nullable<bool> IsActive { get; set; }
     }
 }

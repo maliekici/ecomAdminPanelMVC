@@ -12,22 +12,21 @@ namespace ecomAdminPanel.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Products1
     {
         public int ID { get; set; }
         public int CategoryID { get; set; }
         public int BrandID { get; set; }
-        public string PorductName { get; set; }
+        public string ProductName { get; set; }
         public string BarcodeNo { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal SalePrice { get; set; }
-        public int KDV { get; set; }
+        public Nullable<int> KDV { get; set; }
         public int UnitID { get; set; }
         public System.DateTime Date { get; set; }
-        public string Explanation { get; set; }
     
         public virtual Brands Brands { get; set; }
         public virtual Categories Categories { get; set; }
-        public virtual Unit Unit { get; set; }
+        public virtual Units Units { get; set; }
     }
 }

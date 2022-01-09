@@ -12,19 +12,19 @@ namespace ecomAdminPanel.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Unit
+    public partial class Units
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Unit()
+        public Units()
         {
-            this.Products = new HashSet<Products>();
+            this.Products1 = new HashSet<Products1>();
         }
     
         public int ID { get; set; }
-        public string Unit1 { get; set; }
+        public string Unit { get; set; }
         public string Explanation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Products1> Products1 { get; set; }
     }
 }

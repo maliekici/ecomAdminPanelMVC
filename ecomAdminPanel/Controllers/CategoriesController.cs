@@ -7,13 +7,13 @@ using ecomAdminPanel.Models.Entity;
 
 namespace ecomAdminPanel.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoriesController : Controller
     {
-        ecomAdminPanelEntities db = new ecomAdminPanelEntities();
+        ecomAdminPanelDBEntities db = new ecomAdminPanelDBEntities();
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
         }
 
     }
-}
+} 
