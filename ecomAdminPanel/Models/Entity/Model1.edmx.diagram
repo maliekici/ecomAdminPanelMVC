@@ -13,6 +13,7 @@
         <AssociationConnector Association="ecomAdminPanelModel.FK_Products_Brands" ManuallyRouted="false" />
         <AssociationConnector Association="ecomAdminPanelModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="ecomAdminPanelModel.FK_Products_Unit" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ecomAdminPanelModel.Admin" Width="1.5" PointX="5.5" PointY="4.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

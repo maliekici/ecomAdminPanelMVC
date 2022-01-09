@@ -1,0 +1,12 @@
+
+CREATE TABLE [Admin]
+(
+Id SMALLINT IDENTITY(1,1) PRIMARY KEY
+
+,Username NVARCHAR(100)
+
+,[Password] NVARCHAR(MAX)
+
+,IsActive BIT 
+
+)

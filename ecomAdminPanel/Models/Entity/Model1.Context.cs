@@ -29,5 +29,6 @@ namespace ecomAdminPanel.Models.Entity
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Unit> Unit { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
     }
 }
