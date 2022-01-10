@@ -1,0 +1,34 @@
+﻿@model ecomAdminPanel.Models.Entity.Brands
+@{
+    ViewBag.Title = "UpdateInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Brand Page</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Update", "Brands"))
+    {
+        @Html.ValidationSummary(false, null, new { @class="text-danger"})
+        @Html.HiddenFor(x => x.ID)
+        <div class="form-group">
+            @Html.LabelFor(x => x.Categories.Category)
+            @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.l, "--Seçiniz--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.CategoryID, null, new {@class="text-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Brand)
+            @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Brand, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Explanation)
+            @Html.TextAreaFor(x => x.Explanation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Explanation, null, new { @class = "text-danger" })
+        </div>
+        <div>
+            <button class="btn btn-warning">Update Brands</button>
+        </div>
+    }
+</div>
+

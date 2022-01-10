@@ -1,0 +1,35 @@
+﻿@model ecomAdminPanel.Models.Entity.Brands
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Brand Add Page</h2>
+<div class="container">
+    @using (Html.BeginForm("Add", "Brands", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Categories.Category)
+            @Html.DropDownList("CategoryID", null, "--Seçiniz--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.CategoryID,"",new {@class="text-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Brand)
+            @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Brand, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Explanation)
+            @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Explanation, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            <button class="btn btn-success">Add Brand</button>
+        </div>
+    }
+
+</div>
+
+
+

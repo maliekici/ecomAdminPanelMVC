@@ -1,0 +1,32 @@
+﻿@model ecomAdminPanel.Models.Entity.Categories
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category Delete Page</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Delete", "Categories"))
+    {
+        <h1></h1>
+        <h4>Kaydı Silmek İstediğinize Emin Misiniz!</h4>
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.ID)
+            @Html.LabelFor(x=>x.Category)
+            @Html.DisplayFor(x=>x.Category,new {@class="form-control"})
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Explanation)
+            @Html.DisplayFor(x => x.Explanation, new { @class = "form-control" })
+        </div>
+        <div>
+            <button class="btn btn-danger">
+                Delete Category
+            </button>
+            <a href="/Categories/Index">Home Page</a>
+        </div>
+            
+    }
+</div>
+

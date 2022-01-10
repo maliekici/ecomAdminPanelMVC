@@ -1,0 +1,31 @@
+﻿@model ecomAdminPanel.Models.Entity.Categories
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Category</h2>
+<div class="container">
+    <form action="/Categories/Add2/">
+        @Html.ValidationSummary(false , null, new { @class = "text-danger" })
+        @*Hataların özetini göstermek için yazılın code*@
+
+        <div class="form-group">
+            <label>Category</label>
+            <input type="text" name="Category" class="form-control"/>
+            @Html.ValidationMessageFor(x=>x.Category,"",new {@class="text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label>Explanation</label>
+            <textarea name="Explanation" class="form-control"></textarea>
+            @Html.ValidationMessageFor(x => x.Explanation, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success">Add Category</button>
+        </div>
+
+    </form>
+</div>
+

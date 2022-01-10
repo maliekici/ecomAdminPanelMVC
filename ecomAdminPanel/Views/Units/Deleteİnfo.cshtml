@@ -1,0 +1,32 @@
+﻿@model ecomAdminPanel.Models.Entity.Units
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Unit Delete Page</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Delete", "Units"))
+    {
+        <h1></h1>
+        <h4>Kaydı Silmek İstediğinize Emin Misiniz!</h4>
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.ID)
+            @Html.LabelFor(x=>x.Unit)
+            @Html.DisplayFor(x=>x.Unit, new {@class="form-control"})
+        </div>
+        <div>
+            @Html.LabelFor(x=>x.Explanation)
+            @Html.DisplayFor(x=>x.Explanation, new {@class="form-control"})
+        </div>
+        <div>
+            <button class="btn btn-danger">
+                Delete Unit
+            </button>
+            <a href="/Units/Index">Home Page</a>
+        </div>
+
+    }
+</div>
+

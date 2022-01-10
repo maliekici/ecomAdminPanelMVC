@@ -1,0 +1,29 @@
+﻿@model ecomAdminPanel.Models.Entity.Categories
+@{
+    ViewBag.Title = "UpdateInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Update Info</h2>
+<div class="container">
+    <form action="/Categories/Update">
+        @*<div class="form-group">
+                <b>ID</b>
+                @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+            </div>*@
+        @Html.HiddenFor(x => x.ID)
+        <div class="form-group">
+            <b>Category</b>
+            @Html.TextBoxFor(x => x.Category, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Category, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <b>Explanation</b>
+            @Html.TextAreaFor(x => x.Explanation, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Explanation, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            <button class="btn btn-warning">Update Category</button>
+        </div>
+    </form>
+</div>

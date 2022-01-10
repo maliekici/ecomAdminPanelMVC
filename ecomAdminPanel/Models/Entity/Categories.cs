@@ -11,7 +11,8 @@ namespace ecomAdminPanel.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,10 @@ namespace ecomAdminPanel.Models.Entity
         }
     
         public int ID { get; set; }
+        [Required(ErrorMessage= "Category field cannot be empty")]
         public string Category { get; set; }
+
+        [Required(ErrorMessage = "Explanation field cannot be empty")]
         public string Explanation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
