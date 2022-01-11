@@ -1,0 +1,51 @@
+﻿@model List<ecomAdminPanel.Models.Entity.Products1> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product List</h2>
+
+<table class="table">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Product Name</th>
+            <th>Barcode NO</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Amount</th>
+            <th>Unit</th>
+            <th>KDV</th>
+            <th>Date</th>
+            <th>Explanation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@Html.DisplayFor(x => item.ID)</th>
+            <td>@Html.DisplayFor(x => item.Categories.Category)</td>
+            <th>@Html.DisplayFor(x => item.Brands.Brand)</th>
+            <th>@Html.DisplayFor(x => item.ProductName)</th>
+            <th>@Html.DisplayFor(x => item.BarcodeNo)</th>
+            <th>@Html.DisplayFor(x => item.PurchasePrice)</th>
+            <th>@Html.DisplayFor(x => item.SalePrice)</th>
+            <th>@Html.DisplayFor(x => item.Amount)</th>
+            <th>@Html.DisplayFor(x => item.UnitID)</th>
+            <th>% @Html.DisplayFor(x => item.KDV)</th>
+            <th>@Html.DisplayFor(x => item.Date)</th>
+            <th>@Html.DisplayFor(x => item.Explanation)</th>
+            <th></th>
+            <th></th>
+            <td>@Html.ActionLink("Delete", "Deleteİnfo", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+            <td>@Html.ActionLink("Update", "Updateİnfo", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Products/Add/" class="btn btn-success">Add Product</a>

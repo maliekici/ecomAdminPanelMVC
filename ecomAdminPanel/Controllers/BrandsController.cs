@@ -68,5 +68,19 @@ namespace ecomAdminPanel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DeleteInfo(Brands b)
+        {
+            var bring = db.Brands.Find(b.ID); 
+            return View(bring);
+              
+        }
+
+        public ActionResult Delete(Brands b)
+        {
+            db.Entry(b).State = System.Data.Entity.EntityState.Deleted;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -41,9 +41,11 @@
           <Property Name="BarcodeNo" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PurchasePrice" Type="money" Nullable="false" />
           <Property Name="SalePrice" Type="money" Nullable="false" />
-          <Property Name="KDV" Type="int" />
+          <Property Name="Amount" Type="decimal" Precision="28" Scale="2" />
           <Property Name="UnitID" Type="int" Nullable="false" />
+          <Property Name="KDV" Type="int" />
           <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Explanation" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="Units">
           <Key>
@@ -169,9 +171,11 @@
           <Property Name="BarcodeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="SalePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="KDV" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="28" Scale="2" />
           <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <Property Name="KDV" Type="Int32" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Explanation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Brands" Relationship="Self.FK_Products1_Brands" FromRole="Products1" ToRole="Brands" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Products1_Categories" FromRole="Products1" ToRole="Categories" />
           <NavigationProperty Name="Units" Relationship="Self.FK_Products1_Units" FromRole="Products1" ToRole="Units" />
@@ -300,9 +304,11 @@
                 <ScalarProperty Name="BarcodeNo" ColumnName="BarcodeNo" />
                 <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
                 <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="KDV" ColumnName="KDV" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="KDV" ColumnName="KDV" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

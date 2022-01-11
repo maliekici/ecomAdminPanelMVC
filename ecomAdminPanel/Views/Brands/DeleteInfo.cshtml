@@ -1,0 +1,29 @@
+﻿@model ecomAdminPanel.Models.Entity.Brands
+@{
+    ViewBag.Title = "DeleteInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Brand Delete Page</h2>
+<h3>Kayıt Silemek İstediğinize Emin Misiniz</h3>
+
+<div class="container">
+    @using (Html.BeginForm("Delete", "Brands"))
+    {
+    @Html.HiddenFor(x => x.ID)                                                          
+    <div class="form-group">
+        <b>@Html.LabelFor(x => x.Categories.Category):</b>
+        @Html.DisplayFor(x => x.Categories.Category)
+    </div>
+    <div class="form-group">
+        <b>@Html.LabelFor(x => x.Brand):</b>
+        @Html.DisplayFor(x => x.Brand)
+    </div>
+    <div class="form-group">
+        <b>@Html.LabelFor(x => x.Explanation):</b>
+        @Html.DisplayFor(x => x.Explanation)
+    </div>
+    <div><button class="btn btn-danger">Delete</button>|<a href="/Brands/Index/" class="btn btn-primary">Home Page</a></div>
+    }
+</div>
+
