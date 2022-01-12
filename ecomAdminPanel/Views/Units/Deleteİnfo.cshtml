@@ -12,15 +12,15 @@
         <h1></h1>
         <h4>Kaydı Silmek İstediğinize Emin Misiniz!</h4>
         <div class="form-group">
-            @Html.HiddenFor(x=>x.ID)
-            @Html.LabelFor(x=>x.Unit)
-            @Html.DisplayFor(x=>x.Unit, new {@class="form-control"})
+            @Html.HiddenFor(x => x.ID)
+            @Html.LabelFor(x => x.Unit)
+            @Html.DisplayFor(x => x.Unit, new { @class = "form-control" })
         </div>
         <div>
-            @Html.LabelFor(x=>x.Explanation)
-            @Html.DisplayFor(x=>x.Explanation, new {@class="form-control"})
+            @Html.LabelFor(x => x.Explanation)
+            @Html.DisplayFor(x => x.Explanation, new { @class = "form-control" })
         </div>
-        <div>
+    }<div>
             <button class="btn btn-danger">
                 Delete Unit
             </button>

@@ -29,18 +29,18 @@
         <tr>
             <th>@Html.DisplayFor(x => item.ID)</th>
             <td>@Html.DisplayFor(x => item.Categories.Category)</td>
-            <th>@Html.DisplayFor(x => item.Brands.Brand)</th>
-            <th>@Html.DisplayFor(x => item.ProductName)</th>
-            <th>@Html.DisplayFor(x => item.BarcodeNo)</th>
-            <th>@Html.DisplayFor(x => item.PurchasePrice)</th>
-            <th>@Html.DisplayFor(x => item.SalePrice)</th>
-            <th>@Html.DisplayFor(x => item.Amount)</th>
-            <th>@Html.DisplayFor(x => item.UnitID)</th>
-            <th>% @Html.DisplayFor(x => item.KDV)</th>
-            <th>@Html.DisplayFor(x => item.Date)</th>
-            <th>@Html.DisplayFor(x => item.Explanation)</th>
-            <th></th>
-            <th></th>
+            <td>@Html.DisplayFor(x => item.Brands.Brand)</td>
+            <td>@Html.DisplayFor(x => item.ProductName)</td>
+            <td>@Html.DisplayFor(x => item.BarcodeNo)</td>
+            <td>@Html.DisplayFor(x => item.PurchasePrice)</td>
+            <td>@Html.DisplayFor(x => item.SalePrice)</td>
+            <td>@Html.DisplayFor(x => item.Amount)</td>
+            <td>@Html.DisplayFor(x => item.UnitID)</td>
+            <td>% @Html.DisplayFor(x => item.KDV)</td>
+            <td>@Html.DisplayFor(x => item.Date)</td>
+            <td>@Html.DisplayFor(x => item.Explanation)</td>
+            <td></td>
+            <td></td>
             <td>@Html.ActionLink("Delete", "Deleteİnfo", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
             <td>@Html.ActionLink("Update", "Updateİnfo", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
 
@@ -48,4 +48,4 @@
         }
     </tbody>
 </table>
-<a href="/Products/Add/" class="btn btn-success">Add Product</a>
+<a href="/Products/Add" class="btn btn-success">Add Product</a>

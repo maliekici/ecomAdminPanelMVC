@@ -12,19 +12,19 @@
         <h1></h1>
         <h4>Kaydı Silmek İstediğinize Emin Misiniz!</h4>
         <div class="form-group">
-            @Html.HiddenFor(x=>x.ID)
-            @Html.LabelFor(x=>x.Category)
-            @Html.DisplayFor(x=>x.Category,new {@class="form-control"})
+            @Html.HiddenFor(x => x.ID)
+            @Html.LabelFor(x => x.Category)
+            @Html.DisplayFor(x => x.Category, new { @class = "form-control" })
         </div>
         <div>
             @Html.LabelFor(x => x.Explanation)
             @Html.DisplayFor(x => x.Explanation, new { @class = "form-control" })
         </div>
-        <div>
+    }<div>
             <button class="btn btn-danger">
                 Delete Category
             </button>
-            <a href="/Categories/Index"class="btn btn-primary>Home Page</a>
+            <a href="/Categories/Index"class="btn btn-primary">Home Page</a>
         </div>
             
     }

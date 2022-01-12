@@ -1,12 +1,54 @@
-﻿@model ecomAdminPanel.Models.Entity.Products1;
+﻿@model ecomAdminPanel.Models.Entity.Products1
 @{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Product Add Page</h2>
+<div class="container">
+    @using (Html.BeginForm("Add", "Products", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Categories.Category)
+            @Html.DropDownListFor(x => x.CategoryID, Model.CategoryList, "Seçiniz", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Brands.Brand)
+            @Html.DropDownListFor(x => x.BrandID, Model.BrandList,null, new { @class = "form-control" })
 
 
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Units.Unit)
+            @Html.DropDownListFor(x => x.UnitID, Model.UnitList, "Seçiniz", new { @class = "form-control" })
 
 
+        </div>
+    }
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#CatedoryID").change(function () {
+                var ID = $("#CategoryID").val();
+                var brandList = $("#BrandID");
+                brandList.empty();
+                $.ajax({
+                    url: '/Products/GetBrand',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { 'id2': ID },
+                    success: function (data) {
+                        $.each(data, function (index, option) {
+                            brandList.append('<option value=' + option.Value + '>' + option.Text + '</option>')
+                       });
+                    }
 
+                });
+            });
+
+        });
+    </script>
+}
+    
