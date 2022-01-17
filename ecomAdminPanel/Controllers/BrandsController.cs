@@ -7,6 +7,7 @@ using ecomAdminPanel.Models.Entity;
 
 namespace ecomAdminPanel.Controllers
 {
+    
     public class BrandsController : Controller
     {
         ecomAdminPanelDBEntities db = new ecomAdminPanelDBEntities();
@@ -75,7 +76,7 @@ namespace ecomAdminPanel.Controllers
             return View(bring);
               
         }
-
+        
         public ActionResult Delete(Brands b)
         {
             db.Entry(b).State = System.Data.Entity.EntityState.Deleted;

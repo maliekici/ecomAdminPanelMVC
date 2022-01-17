@@ -15,22 +15,20 @@
             <td>Delete</td>
             <td>Update</td>
         </tr>   
-
     </thead>
 
 
     <tbody>
-
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@item.ID</td>
-            <td>@item.Category</td>
-            <td>@item.Explanation</td>
-            <td><a href="/Categories/DeleteInfo/@item.ID" class="btn btn-danger">Delete</a></td>
-            <td><a href="/Categories/UpdateInfo/@item.ID" class="btn btn-warning">Update</a></td>
-        </tr>
-                }
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Category</td>
+                <td>@item.Explanation</td>
+                <td><a href="/Categories/DeleteInfo/@item.ID" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Categories/UpdateInfo/@item.ID" class="btn btn-warning">Update</a></td>
+            </tr>
+         }
             
         </tbody>
 </table>

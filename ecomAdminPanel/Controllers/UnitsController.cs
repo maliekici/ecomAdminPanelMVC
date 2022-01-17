@@ -7,6 +7,7 @@ using ecomAdminPanel.Models.Entity;
 
 namespace ecomAdminPanel.Controllers
 {
+    
     public class UnitsController : Controller
     {
         ecomAdminPanelDBEntities db = new ecomAdminPanelDBEntities();
@@ -37,7 +38,7 @@ namespace ecomAdminPanel.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Updateİnfo(Units u)
+        public ActionResult UpdateInfo(Units u)
         {
             var model = db.Units.Find(u.ID);
             if (model==null)//yani bu ID den farklı bir değer alırsa
@@ -47,10 +48,10 @@ namespace ecomAdminPanel.Controllers
             return View("Save", model);//en sonda view içerisine model'i ekledik
         }
 
-        public ActionResult Deleteİnfo(Units u)
+        public ActionResult DeleteInfo(Units u)
         {
-            var model = db.Units.Find(u.ID);//bilgileri ID ye göre view'a aktarıyoruz.
-            if (model == null)
+            var model = db.Units.Find(u.ID);
+            if (model == null) 
             {
                 return HttpNotFound();
             }
@@ -63,8 +64,6 @@ namespace ecomAdminPanel.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
 
     }
 }

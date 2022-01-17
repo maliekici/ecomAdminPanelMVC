@@ -14,36 +14,59 @@ namespace ecomAdminPanel.Models.Entity
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-        public partial class Products1
+    public partial class Products1
+    {
+
+        public Products1()
         {
-
-            public Products1()
-            {
-                this.BrandList = new List<SelectListItem>();
-                BrandList.Insert(0, new SelectListItem { Text = "Önce Kategori Seçilmelidir", Value = "" });
-            }
-
-            public int ID { get; set; }
-            public int CategoryID { get; set; }
-            public int BrandID { get; set; }
-            public string ProductName { get; set; }
-            public string BarcodeNo { get; set; }
-            public decimal PurchasePrice { get; set; }
-            public decimal SalePrice { get; set; }
-            public Nullable<decimal> Amount { get; set; }
-            public int UnitID { get; set; }
-            public Nullable<int> KDV { get; set; }
-            [DataType(DataType.Date)]
-            public System.DateTime Date { get; set; }
-            public string Explanation { get; set; }
-
-            public virtual Brands Brands { get; set; }
-            public virtual Categories Categories { get; set; }
-            public virtual Units Units { get; set; }
-            public List<SelectListItem> CategoryList { get; set; }
-            public List<SelectListItem> BrandList { get; set; }
-            public List<SelectListItem> UnitList { get; set; }
-
+            this.BrandList = new List<SelectListItem>();
+            BrandList.Insert(0, new SelectListItem { Text = "Önce Kategori Seçilmelidir", Value = "" });
         }
-    
+        public int ID { get; set; }
+        [Required(ErrorMessage = "Kategori alaný boþ geçilemez")]
+        public int CategoryID { get; set; }
+        [Required(ErrorMessage = "Marka alaný boþ geçilemez")]
+        public int BrandID { get; set; }
+        [Required(ErrorMessage = "Ürün Adý alaný boþ geçilemez")]
+        [Display(Name = "Ürün Adý")]
+        public string ProductName { get; set; }
+        [Required(ErrorMessage = "Barkod NO alaný boþ geçilemez")]
+        [Display(Name = "Barkod NO")]
+        public string BarcodeNo { get; set; }
+        [Required(ErrorMessage = "Alýþ Fiyatý alaný boþ geçilemez")]
+        [Display(Name = "Alýþ Fiyatý")]
+        public decimal? PurchasePrice { get; set; }
+        [Required(ErrorMessage = "Satýþ Fiyatý alaný boþ geçilemez")]
+        [Display(Name = "Satýþ Fiyatý")]
+        public decimal? SalePrice { get; set; }
+        [Required(ErrorMessage = "Miktar alaný boþ geçilemez")]
+        [Display(Name = "Miktar")]
+        public Nullable<decimal> Amount { get; set; }
+        [Required(ErrorMessage = "Birim alaný boþ geçilemez")]
+        public int UnitID { get; set; }
+
+        [Required(ErrorMessage = "KDV alaný boþ geçilemez")]
+        [Range(0,100,ErrorMessage ="0-100 arasý rakam giriniz")]
+        [Display(Name = "KDV")]
+        public Nullable<int> KDV { get; set; }
+        [Required(ErrorMessage = "Tarih alaný boþ geçilemez")]
+
+        [DataType(DataType.Date)]
+        public System.DateTime Date { get; set; }
+        [Required(ErrorMessage = "Açýklama alaný boþ geçilemez")]
+        [Display(Name="Açýklama")]
+        public string Explanation { get; set; }
+
+
+
+
+        public virtual Brands Brands { get; set; }
+        public virtual Categories Categories { get; set; }
+        public virtual Units Units { get; set; }
+        public List<SelectListItem> CategoryList { get; set; }
+        public List<SelectListItem> BrandList { get; set; }
+        public List<SelectListItem> UnitList { get; set; }
+    }
 }
+    
+

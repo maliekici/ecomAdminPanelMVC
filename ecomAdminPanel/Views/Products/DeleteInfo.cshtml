@@ -1,0 +1,21 @@
+﻿@model ecomAdminPanel.Models.Entity.Products1
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products Delete Page</h2>
+
+<div class="container">
+    @using (Html.BeginForm("Delete", "Products"))
+    {
+        <h1></h1>
+        <h4>Kaydı Silmek İstediğinize Emin Misiniz!</h4>
+        <div>
+            <button class="btn btn-danger">Delete Category</button>
+            <a href="/Products/Index" class="btn btn-primary">Home Page</a>
+        </div>
+    }
+
+
+</div>

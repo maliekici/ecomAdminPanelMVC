@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-3"></div>
+    <div class="col-6">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <input type="text" name="username" value="Kullanıcı Adı" class="form-control" />
+            <input type="password" name="password" value="Şifreniz" class="form-control" />
+            <input type="submit" value="Giriş Yap" class="btn btn-success" />
+            <input type="submit" value="Vazgeç" class="btn btn-danger" />
+        }
+    </div>
+    <div class="col-3"></div>
+</body>
+</html>

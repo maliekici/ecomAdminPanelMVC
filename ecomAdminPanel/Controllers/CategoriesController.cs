@@ -7,6 +7,7 @@ using ecomAdminPanel.Models.Entity;
 
 namespace ecomAdminPanel.Controllers
 {
+    
     public class CategoriesController : Controller
     {
         ecomAdminPanelDBEntities db = new ecomAdminPanelDBEntities();

@@ -21,6 +21,9 @@
             <th>KDV</th>
             <th>Date</th>
             <th>Explanation</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -41,9 +44,9 @@
             <td>@Html.DisplayFor(x => item.Explanation)</td>
             <td></td>
             <td></td>
-            <td>@Html.ActionLink("Delete", "Deleteİnfo", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
-            <td>@Html.ActionLink("Update", "Updateİnfo", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
-
+            <td>@Html.ActionLink("Delete", "DeleteInfo", new { id = item.ID }, new { @class = "btn btn-danger" })</td>
+            <td>@Html.ActionLink("Update", "UpdateInfo", new { id = item.ID }, new { @class = "btn btn-warning" })</td>
+            <td>@Html.ActionLink("Add Amount", "AddAmount", new { id = item.ID }, new { @class = "btn btn-secondary" })</td>
         </tr>
         }
     </tbody>

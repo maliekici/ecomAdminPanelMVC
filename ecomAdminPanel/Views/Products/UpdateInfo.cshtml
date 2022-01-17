@@ -1,22 +1,24 @@
 ﻿@model ecomAdminPanel.Models.Entity.Products1
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "UpdateInfo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Product Add Page</h2>
+<h2>Product UpDATE Page</h2>
+
 <div class="container">
-    @using (Html.BeginForm("Add", "Products", FormMethod.Post))
+    @using (Html.BeginForm("Update", "Products", FormMethod.Post))
     {
+        @Html.HiddenFor(x => x.ID)
         <div class="form-group">
             @Html.LabelFor(x => x.Categories.Category)
             @Html.DropDownListFor(x => x.CategoryID, Model.CategoryList, "Seçiniz", new { @class = "form-control" })
-            @Html.ValidationMessageFor(x=>x.CategoryID,"",new { @class="text-danger"})
+            @Html.ValidationMessageFor(x => x.CategoryID, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Brands.Brand)
             @Html.DropDownListFor(x => x.BrandID, Model.BrandList, "Seçiniz", new { @class = "form-control" })
-            @Html.ValidationMessageFor(x => x.BrandID,"", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(x => x.BrandID, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.ProductName)
@@ -56,7 +58,7 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.Date)
-            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", type = "date" })
+            @Html.TextBoxFor(x => x.Date, new { @class = "form-control", type = "date", @Value=Model.Date.ToString("yyyy-MM-dd") })
             @Html.ValidationMessageFor(x => x.Date, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
@@ -65,7 +67,7 @@
             @Html.ValidationMessageFor(x => x.Explanation, "", new { @class = "text-danger" })
         </div>
         <div>
-            <button class="btn btn-success">Add Product</button>
+            <button class="btn btn-primary">Update Product</button>
         </div>
     }
 </div>

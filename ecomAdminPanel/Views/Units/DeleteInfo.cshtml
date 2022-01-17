@@ -13,20 +13,18 @@
         <h4>Kaydı Silmek İstediğinize Emin Misiniz!</h4>
         <div class="form-group">
             @Html.HiddenFor(x => x.ID)
-            @Html.LabelFor(x => x.Unit)
+            <b>@Html.LabelFor(x => x.Unit):</b>
             @Html.DisplayFor(x => x.Unit, new { @class = "form-control" })
         </div>
         <div>
-            @Html.LabelFor(x => x.Explanation)
+            <b>@Html.LabelFor(x => x.Explanation):</b>
             @Html.DisplayFor(x => x.Explanation, new { @class = "form-control" })
         </div>
-    }<div>
-            <button class="btn btn-danger">
-                Delete Unit
-            </button>
-            <a href="/Units/Index" class="btn btn-primary>Home Page</a>
+        <div>
+            <button class="btn btn-danger">Delete Unit</button>
+            |<a href="/Units/Index" class="btn btn-primary">Home Page</a>
         </div>
-
     }
+
 </div>
 
