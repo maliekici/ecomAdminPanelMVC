@@ -31,24 +31,24 @@ namespace ecomAdminPanel.Controllers
             if (Session["LoggedUser"] == null)
                 return View();
             else
-                
+                SendMail("mali@hotmail.com", "Admin Panele Giriş Yaptınız", "<strong>Dear Mali</strong><br><p>Girişiniz başarılıdır</p>");
                 return RedirectToAction("Index");
         }
-        public void SendMail(string toMailAddress, string body)
+        public void SendMail(string toMailAddress, string subject, string body)
         {
             //Maili gönderecek olan hostu set etmek
             SmtpClient client = new SmtpClient("mail.microsoft.com");
             //SmtpClient'in göndereceği mail config etmek
             //MailMessage msg = new MailMessage("bill@microsoft.com", "paul@microsoft.com");
-            MailAddress fromAddress = new MailAddress("bill@microsoft.com", "The Bill Gates");
+            MailAddress fromAddress = new MailAddress("mehmetali@hotmail.com", "Mehmet Ali Ekici");
             MailAddress toAddress = new MailAddress(toMailAddress);
             MailMessage msg = new MailMessage(fromAddress, toAddress);
-            msg.Subject = "Giriş Yaptınız";
+            msg.Subject = subject;
             msg.IsBodyHtml = true;
-            msg.Body = "<strong>Dear Mali</strong><br><p>Girişiniz başarılıdır</p>";
+            msg.Body = body;
 
             //Güvenlik Ayarlar 
-            NetworkCredential credential = new NetworkCredential("bill@microsoft.com", "123456");
+            NetworkCredential credential = new NetworkCredential("mehmetali@hotmail.com", "123456");
             client.Credentials = credential;
             //Maili göndermek
             client.Send(msg);
